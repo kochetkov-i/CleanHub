@@ -1,0 +1,25 @@
+[project]
+name = "cleanhub"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "django>=5.2.6",
+    "gunicorn>=23.0.0",
+    "psycopg2-binary>=2.9.10",
+    "python-dotenv>=1.1.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
+lint = [
+    "flake8>=7.3.0",
+    "flake8-print>=5.0.0",
+    "flake8-quotes>=3.4.0",
+    "flake8-unused-arguments>=0.0.13",
+    "isort>=6.0.1",
+    "mypy>=1.18.2",
+]
