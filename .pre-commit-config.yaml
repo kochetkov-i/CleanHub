@@ -1,13 +1,13 @@
 default_language_version:
   python: python3.11
-  
+
 repos:
 -   repo: https://github.com/pycqa/flake8
-    rev: ''
+    rev: '7.3.0'
     hooks:
     -   id: flake8
 
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: ''
+    rev: v1.18.2
     hooks:
     -   id: mypy
