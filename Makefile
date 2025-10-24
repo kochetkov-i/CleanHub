@@ -11,8 +11,10 @@ tests:
 check:
 	make -j3 style types tests
 
-build:
+migrate:
 	python manage.py migrate --noinput
+
+static:
 	python manage.py collectstatic --noinput
 
 run:

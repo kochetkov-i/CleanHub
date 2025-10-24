@@ -21,6 +21,6 @@ indent_size = 4
 indent_style = tab
 
 # Js files indentation
-[*.js]
+[*.{js,html}]
 indent_style = space
 indent_size = 2
