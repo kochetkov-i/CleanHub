@@ -22,8 +22,9 @@ RUN python3 -m pip install --no-cache-dir uv==0.7.8 && \
 # Copy application code
 COPY cleanhub /app/
 
-RUN make build
+RUN make migrate
+RUN make static
 
 EXPOSE 8000
 
-RUN python -m gunicorn --bind 0.0.0.0:8000 --workers 3 cleanhub.wsgi:application
+RUN make run
