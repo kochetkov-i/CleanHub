@@ -20,9 +20,9 @@ from dotenv import find_dotenv, load_dotenv
 env = environ.Env()
 environ.Env.read_env()
 
-dot_env = find_dotenv(filename='.env', raise_error_if_not_found=True)
-load_dotenv(dotenv_path=dot_env, override=True)
-
+dot_env = find_dotenv(filename='.env', raise_error_if_not_found=False)
+if dot_env:
+    load_dotenv(dotenv_path=dot_env, override=True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
