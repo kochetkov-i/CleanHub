@@ -28,6 +28,6 @@ install:
 
 install-all:
 	python -m pip install --no-cache-dir uv==0.7.8 && \
-    python -m uv export --frozen --no-hashes -o requirements.txt && \
+    python -m uv export --frozen --no-hashes --all-groups -o requirements.txt && \
     python -m pip install --no-cache-dir -r requirements.txt && \
     python -m pip uninstall -y uv
