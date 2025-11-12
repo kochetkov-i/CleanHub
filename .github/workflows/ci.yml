@@ -16,7 +16,7 @@ jobs:
           python-version-file: '.python-version'
 
       - name: Install dependencies
-        run: make install
+        run: make install-all
 
       - name: Check style
         run: make style
@@ -31,7 +31,7 @@ jobs:
           python-version-file: '.python-version'
 
       - name: Install dependencies
-        run: make install
+        run: make install-all
 
       - name: Check types
         run: make types
