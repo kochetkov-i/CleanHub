@@ -45,12 +45,12 @@ jobs:
         uses: actions/setup-python@v6.0.0
         with:
           python-version-file: '.python-version'
-          
-      - name: Secret Injector
-        uses: Inrixia/Secret-Injector@v1
+      
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@v2.0.3
         with:
-          # Workflow env
-          env: test
+          # The directory to put the envfile in
+          directory: cleanhub
           
       - name: Install dependencies
         run: make install-all
