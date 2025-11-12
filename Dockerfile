@@ -14,13 +14,13 @@ ENV PYTHONUNBUFFERED=1
 COPY Makefile uv.lock pyproject.toml /app/
 
 # Install dependencies using uv
-RUN python3 -m pip install --no-cache-dir uv==0.7.8 && \
-    python3 -m uv export --frozen --no-hashes --no-dev -o requirements.txt && \
-    python3 -m pip install --no-cache-dir -r requirements.txt && \
-    python3 -m pip uninstall -y uv
+RUN make install
 
 # Copy application code
-COPY cleanhub /app/
+COPY . /app/
+
+RUN ls -a
+RUN ls ./cleanhub -a
 
 RUN make migrate
 RUN make static
