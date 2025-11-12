@@ -50,7 +50,7 @@ jobs:
           python-version-file: '.python-version'
 
       - name: Install dependencies
-        run: make install
+        run: make install-all
 
       - name: Run tests
         run: make tests
