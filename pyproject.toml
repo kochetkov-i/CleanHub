@@ -5,7 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "crispy-bootstrap5>=2025.6",
     "django>=5.2.6",
+    "django-crispy-forms>=2.4",
+    "django-environ>=0.12.0",
     "gunicorn>=23.0.0",
     "psycopg2-binary>=2.9.10",
     "python-dotenv>=1.1.1",
@@ -27,5 +30,6 @@ test = [
     "pytest>=8.4.2",
     "pytest-clarity>=1.0.1",
     "pytest-cov>=7.0.0",
+    "pytest-django>=4.11.1",
     "pytest-testdox>=3.1.0",
 ]

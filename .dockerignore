@@ -71,7 +71,6 @@ docs/_build/
 target/
 
 # Virtual environment
-cleanhub/cleanhub/.env
 .venv/
 venv/
 

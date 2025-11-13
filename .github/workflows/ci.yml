@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  run_style:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v5.0.0
+      - name: Set up python
+        uses: actions/setup-python@v6.0.0
+        with:
+          python-version-file: '.python-version'
+
+      - name: Install dependencies
+        run: make install-all
+
+      - name: Check style
+        run: make style
+
+  run_types:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v5.0.0
+      - name: Set up python
+        uses: actions/setup-python@v6.0.0
+        with:
+          python-version-file: '.python-version'
+
+      - name: Install dependencies
+        run: make install-all
+
+      - name: Check types
+        run: make types
+
+  run_tests:
+    runs-on: [ubuntu-latest]
+    needs: [run_style, run_types]
+    steps:
+      - uses: actions/checkout@v5.0.0
+      - name: Set up python
+        uses: actions/setup-python@v6.0.0
+        with:
+          python-version-file: '.python-version'
+
+      - name: Install dependencies
+        run: make install-all
+
+      - name: Run tests
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DEBUG: ${{ secrets.DEBUG }}
+          ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+        run: make tests
