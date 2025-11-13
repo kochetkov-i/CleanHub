@@ -19,9 +19,6 @@ RUN make install
 # Copy application code
 COPY . /app/
 
-RUN ls -a
-RUN ls ./cleanhub -a
-
 RUN make migrate
 RUN make static
 
