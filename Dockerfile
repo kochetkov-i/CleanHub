@@ -19,9 +19,4 @@ RUN make install
 # Copy application code
 COPY . /app/
 
-RUN make migrate
-RUN make static
-
 EXPOSE 8000
-
-RUN make run
