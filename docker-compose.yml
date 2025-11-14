@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cleanhub-web
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./cleanhub/.env
+    volumes:
+      - .:/app
+      - media_volume:/app/media
+    restart: unless-stopped
+    command: >
+      sh -c "
+        make migrate &&
+        make static &&
+        make run
+      "
+
+volumes:
+  media_volume:
